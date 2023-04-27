@@ -1,4 +1,4 @@
-# FastAPI and MongoDB 
+# FastAPI and MongoDB based TASK-Management
 
 ## Features
 
