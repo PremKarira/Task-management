@@ -15,7 +15,7 @@
 
 FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9
 
-COPY ./app /app
+COPY . /app
 
 # ENV MONGO_URL <URL>
 
