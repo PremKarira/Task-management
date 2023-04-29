@@ -70,6 +70,6 @@ async def delete_task(task_id: str):
     await tasks_collection.delete_one({"_id": ObjectId(task_id)})
     return {"status": "Task deleted"}
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("main:app", port=8000, reload=True)
+# if __name__ == "__main__":
+#     import uvicorn
+#     uvicorn.run("main:app", port=8000, reload=True)
