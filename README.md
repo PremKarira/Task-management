@@ -27,6 +27,12 @@ MONGO_URL=<url>
 $ python -m uvicorn main:app --reload
 ```
 
+4. Build the Docker image and run the Docker container
+
+```console
+$ docker build -t task-docker .
+$ docker run -p 8000:80 task-docker
+```
 
 ![FastAPI](https://github.com/PremKarira/Task-management/blob/master/1.png?raw=true)
 
