@@ -3,14 +3,13 @@ from pydantic import BaseModel
 from motor.motor_asyncio import AsyncIOMotorClient
 from bson.objectid import ObjectId
 from dotenv import load_dotenv
+from pymongo import MongoClient
 
 load_dotenv()
 import os
 app = FastAPI()
 
-# Connect to MongoDB
 url=os.environ.get('MONGO_URL')
-# print(os.environ.get('MONGO_URL'))
 client = AsyncIOMotorClient(url)
 db = client["task_management"]
 tasks_collection = db["tasks"]
@@ -28,6 +27,10 @@ class Task(BaseModel):
 def read_root():
     return {"Hello": "World"}
 
+@app.get("/check")
+def check():
+    return {"Hello": "World"}
+
 # Create a task
 @app.post("/tasks")
 async def create_task(task: Task):
@@ -39,7 +42,6 @@ async def create_task(task: Task):
 # Get all tasks
 @app.get("/tasks")
 async def get_all_tasks():
-    
     tasks = []
     async for task in tasks_collection.find():
         task["id"] = str(task["_id"])
